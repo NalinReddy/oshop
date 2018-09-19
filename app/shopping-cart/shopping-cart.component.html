@@ -1,0 +1,36 @@
+<h1>
+  Shopping Cart
+</h1>
+<p> You have {{cartService.shoppingCartCount}} items in your shopping cart
+    <button *ngIf="items.length" 
+    class="btn btn-light btn-sm" (click)="clear()">Clear Shopping cart</button>
+</p>
+
+<ng-container>
+  <div class="row col-10">
+    <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th class="text-center" style="width: 250px">Quantity</th>
+            <th class="text-right" style="width:200px">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let id of items;let i=index">
+                <td> <div [style.backgroundImage]=" 'url(' + items[i].product.imageUrl + ')' " class="thumbnail"></div></td>
+                <td>{{items[i].product.title}}</td>
+                <td><shopping-quantity [product]="items[i].product"  ></shopping-quantity></td>
+                <td class="text-right">{{items[i].product.price | currency:'INR' : 'symbol-narrow'}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><h2>Total</h2></td>
+            <td></td>
+            <td class="text-right"><strong>{{cartService.totalAmount| currency:'INR' : 'symbol-narrow'}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <button *ngIf="items.length" routerLink="/check-out" class="btn btn-primary btn-sm">Check Out</button>
+</ng-container>

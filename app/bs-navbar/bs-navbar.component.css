@@ -1,0 +1,9 @@
+.navbar-light .navbar-toggler-icon{
+    background-image: none;
+}
+.navbar-toggler-icon{
+    display: none;
+}
+.navbar button {
+display: none;
+}

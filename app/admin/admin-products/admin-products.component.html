@@ -1,0 +1,55 @@
+<p>
+        <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+<p>
+    <input #f (keyup)="filter(f.value)" type="text" class="form-control" placeholder="search...">
+</p>
+
+<!-- <data-table 
+ [items]="items"
+ [itemCount]="itemCount"
+ (reload)="reloadItems($event)"
+>
+  <data-table-column
+   [property]="title"
+   [header]="title"
+   [sortable]="true"
+   [resizable]="true"
+  >
+  <data-table-column
+   [property]="price"
+   [header]="price"
+   [sortable]="true"
+   [resizable]="true"
+  >
+  <ng-template #dataTableCell let-item="items" >
+     {{product.price | currency:'INR' : 'symbol-narrow'}}
+  </ng-template>
+
+  <data-table-column
+  [property]="'key'"
+ >
+ <ng-template #dataTableCell let-item="items">
+ </ng-template>
+ </data-table-column>
+
+</data-table> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of filteredProducts">
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>    
+                <a [routerLink]="['/admin/products/',product.key]" >edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

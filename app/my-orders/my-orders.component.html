@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let j of orders; let i = index">
+                <td >
+                    {{orders[i].shipping.name}}
+                  </td>
+                  <td>{{orders[i].date | date : 'medium'}}</td>
+                  <td><a href="#">Edit</a></td>
+        </tr>
+    </tbody>
+  </table>

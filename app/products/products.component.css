@@ -1,0 +1,13 @@
+@media(max-width:800px){
+    .col-3 {
+       
+        flex: 0 0 0;
+        max-width:55%;
+    }
+    .col {
+        flex-shrink: 2;
+    }
+}
+	
+
+
